@@ -10,6 +10,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='BlinkM CLI.',
             formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
     parser.add_argument('device',
             help="Serial i2c bridge to use for communication")
 
@@ -22,10 +23,10 @@ if __name__ == '__main__':
     for func, cmd in BlinkM.commands.items():
         if cmd[1] == 0:
             parser.add_argument("--" + func.lower(), action='store_true',
-                help=func)
+                    help=func)
         else:
-            parser.add_argument("--" + func.lower(),
-                help=func)
+            parser.add_argument("--" + func.lower(), nargs=cmd[1],
+                    help=func)
 
     args = parser.parse_args()
     ser = serial.Serial(args.device, args.speed, timeout=0.1)
@@ -35,8 +36,6 @@ if __name__ == '__main__':
             met = getattr(b, func)
             margs = []
             if cmd[1] > 0:
-                margs = [int(x) for x in getattr(args, func.lower()).split(',')]
+                margs = [int(x) for x in getattr(args, func.lower())]
             ret = met(*margs)
             print(ret)
-
-
