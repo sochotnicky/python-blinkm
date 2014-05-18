@@ -12,7 +12,7 @@ Dependencies
 
 
 You can use Arduino as a bridge if you upload BlinkMCommunicator from official
-examples (I actually tested just this configuration, I'd love look at CtrlM one
+examples (I actually tested just this configuration, I'd love look at LinkM one
 day.
 
 Note that if you set your group correctly you should *not* need to use this
