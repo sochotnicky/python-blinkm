@@ -1,19 +1,15 @@
 python-blinkm
 =============
 
-Python module for interfacing with BlinkM LEDs through USB I2C interface
+Python module for interfacing with BlinkM LEDs through USB<->Serial/I2C interface
+such as the one that can be created with Arduino and BlinkMCommunicator
 
 
 Dependencies
 ============
 
- * pyserial - you will most likely use it to initialize serial connection to
-        arduino/USB-to-i2c adapter (I haven't tested anything else :-)
+ * pyserial - you will need it to initialize serial connection to arduino
 
-
-You can use Arduino as a bridge if you upload BlinkMCommunicator from official
-examples (I actually tested just this configuration, I'd love look at LinkM one
-day.
 
 Note that if you set your group correctly you should *not* need to use this
 module as root
