@@ -8,11 +8,11 @@ class BlinkM(object):
             "fadeToRGB": ['c', 3, 0],
             "fadeToHSV": ['h', 3, 0],
             "fadeToRandomRGB": ['C', 3, 0],
-            "fadeToRandomHSV": ['C', 3, 0],
+            "fadeToRandomHSV": ['H', 3, 0],
             "playScript": ['p', 3, 0],
             "stopScript": ['o', 0, 0],
             "setFadeSpeed": ['f', 1, 0],
-            "setTimeAdjust": ['f', 1, 0],
+            "setTimeAdjust": ['t', 1, 0],
             "getColor": ['g', 0, 3],
             "setAddress": ['A', 4, 0],
             "getAddress": ['a', 0, 1],
@@ -20,6 +20,9 @@ class BlinkM(object):
             }
 
     def __init__(self, port, address):
+        """port - open and initialized serial port used for communication
+        address - i2c address for controlled BlinkM (0x09 is default, 0x0 is broadcast)
+        """
         self.port = port
         self.address = address
         for k, v in BlinkM.commands.items():
